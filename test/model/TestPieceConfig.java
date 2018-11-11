@@ -10,6 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * Using JUnit5, tests a modified configuration of the puzzle. Each model has a puzzle with a single specific piece. This allows for much easier movement 
+ * and to test the winning case of the puzzle
+ * @author Yil Verdeja
+ *
+ */
 class TestPieceConfig {
 	
 	Model model1, model2, model3, model4;

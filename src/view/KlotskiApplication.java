@@ -27,6 +27,11 @@ import controller.SelectPieceController;
 
 import java.awt.Component;
 
+/**
+ * The Klotski Application class is the main GUI view of the application. It holds the buttons, labels, and puzzle view of the system
+ * @author Yil Verdeja
+ *
+ */
 public class KlotskiApplication extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -38,20 +43,32 @@ public class KlotskiApplication extends JFrame {
 	JButton btnResetPuzzle;
 	JButton btnUp, btnDown, btnLeft, btnRight;
 	
+	/**
+	 * Gets the JLabel number of moves counter
+	 * @return
+	 */
 	public JLabel getMoveCounter() {
 		return numberOfMoves;
 	}
 	
+	/**
+	 * Gets the puzzle view
+	 * @return
+	 */
 	public PuzzleView getPuzzleView() {
 		return puzzleView;
 	}
 	
+	/**
+	 * Sets the number of moves given a integer parameter
+	 * @param numMoves
+	 */
 	public void setNumberOfMoves(int numMoves) {
 		numberOfMoves.setText(String.valueOf(numMoves));
 	}
 
 	/**
-	 * Create the frame.
+	 * Constructor that creates the frame given a model of the application
 	 */
 	public KlotskiApplication(Model model) {
 		setResizable(false);
