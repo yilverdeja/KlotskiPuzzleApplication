@@ -9,32 +9,40 @@ public class Model {
 	final public int PUZZLE_WIDTH = SQUARE_SIZE*4;
 	
 	Puzzle puzzle;
-	int numMoves = 0;
+	int numMoves;
 	
-	public Model(boolean normal) {
-		if (normal)
-			puzzle = new Puzzle(Model.this);
-		else {
-			ArrayList<Piece> puzzlePieces = new ArrayList<Piece>();
-			try {
-				puzzlePieces.add(new Piece(Model.this, "Main", new Coordinate(2,1)));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			puzzle = new Puzzle(Model.this, puzzlePieces);
+	public Model() {
+		puzzle = new Puzzle(Model.this);
+		numMoves = 0;
+	}
+	
+	public Model(int pieceType, Coordinate coord) throws Exception {
+		if (pieceType < 1 || pieceType > 4) {
+			throw new Exception("Wrong pieceType! 1 - Main; 2 - Wide; 3 - Tall; 4 - Square");
 		}
+		
+		ArrayList<Piece> puzzlePieces = new ArrayList<Piece>();
+		try {
+			if (pieceType == 1) {
+				puzzlePieces.add(new Piece(Model.this, "Main", coord));
+			} else if (pieceType == 2) {
+				puzzlePieces.add(new Piece(Model.this, "Wide", coord));
+			} else if (pieceType == 3) {
+				puzzlePieces.add(new Piece(Model.this, "Tall", coord));
+			} else if (pieceType == 4) {
+				puzzlePieces.add(new Piece(Model.this, "Square", coord));
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		puzzle = new Puzzle(Model.this, puzzlePieces);
+		numMoves = 0;
+		
 	}
 	
 	public Puzzle getPuzzle() {
 		return puzzle;
-	}
-	
-	public int getWindowHeight() {
-		return PUZZLE_HEIGHT*2;
-	}
-	
-	public int getWindowWidth() {
-		return PUZZLE_WIDTH*2;
 	}
 	
 	public void incrementMoves() {
@@ -42,6 +50,7 @@ public class Model {
 	}
 	
 	public int getNumMoves() {
+		System.out.println("NUM MOVES: "+numMoves);
 		return numMoves;
 	}
 	

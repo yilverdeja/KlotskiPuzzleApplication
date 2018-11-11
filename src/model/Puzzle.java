@@ -63,14 +63,6 @@ public class Puzzle {
 		return cleared && !pieces.isEmpty();
 	}
 	
-	public int getNumberOfMoves() {
-		return numberOfMoves;
-	}
-	
-	public void incrementMoveCounter() {
-		numberOfMoves++;
-	}
-	
 	public Piece getPieceAtCoordinate(Coordinate coord) {
 		return getPieceAtPosition(coord.getXPos()*model.SQUARE_SIZE, coord.getYPos()*model.SQUARE_SIZE);
 	}
@@ -169,6 +161,7 @@ public class Puzzle {
 	
 	private void movePiece(Coordinate c, Piece piece) {
 		piece.movePiece(c);
+		model.incrementMoves();
 	}
 	
 	private boolean validateMove(ArrayList<Coordinate> tiles, Piece piece) {

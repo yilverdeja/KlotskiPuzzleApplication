@@ -11,16 +11,6 @@ public class Piece {
 	Color pieceColor;
 	Model model;
 	
-	public Piece(Model model, int pieceHeight, int pieceWidth, int xPos, int yPos, boolean isMain) {
-		this.model = model;
-		this.isSelected = false;
-		this.pieceHeight = pieceHeight;
-		this.pieceWidth = pieceWidth;
-		this.isMain = isMain;
-		this.coord = new Coordinate(xPos, yPos);
-		setPieceColor();
-	}
-	
 	public Piece(Model model, String pieceType, Coordinate coord) throws Exception {
 		this.model = model;
 		this.isSelected = false;

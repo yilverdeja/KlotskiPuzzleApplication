@@ -32,7 +32,7 @@ public class MovePieceController {
 			return;
 		}
 		
-		model.incrementMoves();
+//		model.incrementMoves();
 		app.setNumberOfMoves(model.getNumMoves());
 		app.getPuzzleView().refresh();
 		if (puzzle.isSolved()) {

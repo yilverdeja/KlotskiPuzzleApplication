@@ -1,8 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,14 +9,11 @@ import model.Model;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.border.LineBorder;
 
@@ -35,6 +29,8 @@ import java.awt.Component;
 
 public class KlotskiApplication extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	Model model;
 	JLabel numberOfMoves;
@@ -72,20 +68,20 @@ public class KlotskiApplication extends JFrame {
 		
 		JLabel lblMoves = new JLabel("Moves:");
 		lblMoves.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblMoves.setBounds(180, 100, 92, 26);
+		lblMoves.setBounds(160, 100, 92, 26);
 		contentPane.add(lblMoves);
 		
 		numberOfMoves = new JLabel("0");
 		numberOfMoves.setFont(new Font("Tahoma", Font.PLAIN, 26));
 		numberOfMoves.setHorizontalAlignment(SwingConstants.TRAILING);
-		numberOfMoves.setBounds(200, 100, 92, 26);
+		numberOfMoves.setBounds(220, 100, 92, 26);
 		contentPane.add(numberOfMoves);
 		
 		puzzleView = new PuzzleView(model);
 		puzzleView.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				new SelectPieceController(e.getPoint(), model, puzzleView).selectPiece();
+				new SelectPieceController(e.getPoint(), model, KlotskiApplication.this).selectPiece();
 			}
 		});
 		
