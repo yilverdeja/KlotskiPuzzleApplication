@@ -6,15 +6,18 @@ import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.sun.glass.events.KeyEvent;
-
-@SuppressWarnings("restriction")
+/**
+ * Using JUnit5, tests the initial piece configuration of the puzzle
+ * @author Yil Verdeja
+ *
+ */
 class TestInitialConfig {
 	
 	Model model;
@@ -97,7 +100,6 @@ class TestInitialConfig {
 		}
 	}
 	
-	@SuppressWarnings("restriction")
 	@Test
 	void testMoveWithoutSelecting() {
 		Piece piece;
@@ -111,7 +113,6 @@ class TestInitialConfig {
 		}
 	}
 	
-	@SuppressWarnings("restriction")
 	@Test
 	void testInvalidMoveSquare() {
 		Piece piece = puzzle.getPieceAtCoordinate(new Coordinate(1,0));
@@ -123,7 +124,6 @@ class TestInitialConfig {
 		assertFalse(puzzle.tryMove(KeyEvent.VK_RIGHT, piece));
 	}
 	
-	@SuppressWarnings("restriction")
 	@Test
 	void testInvalidMoveWide() {
 		Piece piece = puzzle.getPieceAtCoordinate(new Coordinate(1,3));
@@ -135,7 +135,6 @@ class TestInitialConfig {
 		assertFalse(puzzle.tryMove(KeyEvent.VK_RIGHT, piece));
 	}
 	
-	@SuppressWarnings("restriction")
 	@Test
 	void testInvalidMoveTall() {
 		Piece piece = puzzle.getPieceAtCoordinate(new Coordinate(0,0));
@@ -147,7 +146,6 @@ class TestInitialConfig {
 		assertFalse(puzzle.tryMove(KeyEvent.VK_RIGHT, piece));
 	}
 	
-	@SuppressWarnings("restriction")
 	@Test
 	void testInvalidMoveMain() {
 		Piece piece = puzzle.getPieceAtCoordinate(new Coordinate(2,1));

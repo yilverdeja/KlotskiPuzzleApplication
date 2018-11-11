@@ -15,6 +15,11 @@ import model.Piece;
 import model.Puzzle;
 import view.KlotskiApplication;
 
+/**
+ * JUnit Testing for Controllers and the ~Boundary~
+ * @author Yil Verdeja
+ *
+ */
 class TestController {
 	
 	Model model;
