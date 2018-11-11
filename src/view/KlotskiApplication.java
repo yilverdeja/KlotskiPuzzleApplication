@@ -19,7 +19,6 @@ import javax.swing.border.LineBorder;
 
 import java.awt.Color;
 import java.awt.Font;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import controller.MovePieceController;
 import controller.ResetPuzzleController;
@@ -156,6 +155,5 @@ public class KlotskiApplication extends JFrame {
 		btnRight.setBounds(420, 290, 45, 25);
 		contentPane.add(btnRight);
 		
-		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, lblMoves, numberOfMoves, puzzleView, btnResetPuzzle, btnUp, btnDown, btnLeft, btnRight}));
 	}
 }
