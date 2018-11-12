@@ -38,12 +38,19 @@ public class PuzzleView extends JPanel {
 		
 		Puzzle puzzle = model.getPuzzle();
 		
+		int offset = 0;
+		int slotSize = 5;
+		
+		g.setColor(Color.white);
+		g.fillRect(0, 0, model.PUZZLE_WIDTH, model.PUZZLE_HEIGHT);
+		
 		for (Piece piece: puzzle.getPieces()) {
 			
-			int xPanelPos = piece.getCoord().getXPos()*model.SQUARE_SIZE;
-			int yPanelPos = piece.getCoord().getYPos()*model.SQUARE_SIZE;
-			int pieceHeight = piece.getPieceHeight()*model.SQUARE_SIZE;
-			int pieceWidth = piece.getPieceWidth()*model.SQUARE_SIZE;
+			
+			int xPanelPos = piece.getCoord().getXPos()*model.SQUARE_SIZE+offset;
+			int yPanelPos = piece.getCoord().getYPos()*model.SQUARE_SIZE+offset;
+			int pieceHeight = piece.getPieceHeight()*model.SQUARE_SIZE-offset*2;
+			int pieceWidth = piece.getPieceWidth()*model.SQUARE_SIZE-offset*2;
 			
 			g.setColor(piece.getPieceColor());
 			g.fillRect(xPanelPos, yPanelPos, 
@@ -54,6 +61,9 @@ public class PuzzleView extends JPanel {
 					pieceWidth, pieceHeight);
 			
 		}
+		
+		g.setColor(Color.black);
+		g.fillRect(model.PUZZLE_WIDTH/4, model.PUZZLE_HEIGHT-slotSize, model.PUZZLE_WIDTH/2, slotSize);
 		
 	}
 	
